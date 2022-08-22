@@ -6,7 +6,7 @@ export default function App() {
       <View>
         <Text>Another piece of text!</Text>
       </View>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={{margin: 16, borderWidth: 2, borderColor: 'red', padding: 16}}>Open up App.js to start working on your app!</Text>
       <Button title="click me!" />
     </View>
   );
