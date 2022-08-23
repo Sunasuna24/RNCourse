@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 export default function App() {
-  const [enteredGoalText, setEnteredGoalText] = useState('');
+  const [enteredGoalText, setEnteredGoalText] = useState(''); // テキストを保存するからuseStateの初期値を「''」にする
+  const [courseGoals, setCourseGoals] = useState([]);         // 複数個のゴール（＝配列）を保存するから初期値は「[]」にする
 
   function goalInputHandler(enteredText) {
     setEnteredGoalText(enteredText);
   };
 
   function addGoalHandler() {
-    console.log(enteredGoalText);
+    setCourseGoals((currentCourseGoals) => [...currentCourseGoals, enteredGoalText]); // 配列の中身を更新する方法、ドキュメントなどで推奨されているやり方らしい
   };
 
   return (
@@ -25,7 +26,7 @@ export default function App() {
         />
       </View>
       <View style={styles.goalsContainer}>
-        <Text>List of Goals.</Text>
+        {courseGoals.map((goal) => <Text key={goal}>{goal}</Text>)}
       </View>
     </View>
   );
