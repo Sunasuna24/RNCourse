@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, Button, TextInput, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, View, Button, TextInput, FlatList } from 'react-native';
+import GoalItem from './components/GoalItem';
 
 export default function App() {
   const [enteredGoalText, setEnteredGoalText] = useState(''); // テキストを保存するからuseStateの初期値を「''」にする
@@ -29,9 +30,7 @@ export default function App() {
         <FlatList
           data={courseGoals}
           renderItem={(itemData) => {
-            return (
-              //
-            );
+            return <GoalItem />;
           }}
           keyExtractor={(item, index) => {
             return item.id;
